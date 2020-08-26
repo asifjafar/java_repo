@@ -1,0 +1,4 @@
+First thanks for your clear and great tutorial;
+just a thing that should be corrected:
+in code snippet for functional interface, as the codes are in Java;
+it’s better to write “implements” instead of “extends” in bellow one:
