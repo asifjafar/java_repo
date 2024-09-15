@@ -5,6 +5,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Stream;
 import lombok.*;
 
 @Getter
@@ -27,6 +28,7 @@ public class Customer {
 
   private String invoiceDate;
   private String currency;
+  private double total;
 
   public static Customer DEFAULT_CUSTOMER =
       Customer.builder()
@@ -35,8 +37,10 @@ public class Customer {
           .phoneNumber(9876543210L)
           .items(List.of(Item.DEFAULT_ITEM_1, Item.DEFAULT_ITEM_2))
           .customerAddress("EJ123, Block 91A, Mumbai-678807")
-          .orderId("A1234DF34")
+          .orderId("A12341111")
           .invoiceDate(new Date(System.currentTimeMillis()).toString())
+          .total(
+              Stream.of(Item.DEFAULT_ITEM_1, Item.DEFAULT_ITEM_2).mapToDouble(Item::getPrice).sum())
           .currency("₹")
           .build();
 }

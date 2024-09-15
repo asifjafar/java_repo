@@ -4,10 +4,9 @@ import static com.fasterxml.jackson.databind.SerializationFeature.INDENT_OUTPUT;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
@@ -39,14 +38,18 @@ public class PdfUtil {
     mapper.enable(INDENT_OUTPUT);
     var value = mapper.writeValueAsString(Customer.DEFAULT_CUSTOMER);
     log.info(value);
-    convertToPdf();
+    convertToPdf(value);
   }
 
-  private static void convertToPdf() throws IOException, SAXException, ConfigurationException {
+  private static void convertToPdf(String data)
+      throws IOException, SAXException, ConfigurationException {
     // the XSL FO file
     File xsltFile = new File("src/main/resources/template.xsl");
     // the XML file which provides the input
-    StreamSource xmlSource = new StreamSource(new File("src/main/resources/data.xml"));
+
+    //    StreamSource xmlSource = new StreamSource(new File("src/main/resources/data.xml"));
+    StreamSource xmlSource =
+        new StreamSource(new ByteArrayInputStream(data.getBytes(StandardCharsets.UTF_8)));
     // create an instance of fop factory
 
     URI configURI = new File("src/main/resources/fop.xml").toURI();

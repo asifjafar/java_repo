@@ -16,9 +16,11 @@ public class Item {
   private String itemName;
   private String description;
   private String quantity;
+  private int serialNumber;
 
   public static final Item DEFAULT_ITEM_1 =
       Item.builder()
+          .serialNumber(1)
           .itemName("Rice")
           .description("Basmati Rice")
           .price(1023.44)
@@ -27,6 +29,7 @@ public class Item {
 
   public static final Item DEFAULT_ITEM_2 =
       Item.builder()
+          .serialNumber(2)
           .itemName("LED Bulb")
           .description("30W Led Bulb")
           .price(768.99)
