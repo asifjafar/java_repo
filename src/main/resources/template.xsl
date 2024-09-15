@@ -18,30 +18,15 @@
                     <fo:block display-align="after" text-align="right" space-before="6mm">
                         Page <fo:page-number/> of <fo:page-number-citation ref-id="end-of-document"/>
                     </fo:block>
-                    <fo:block font-size="12pt" font-weight="bold">INVOICE REPORT</fo:block>
-                    <fo:table table-layout="fixed" width="100%" font-size="10pt" border-color="black" border-width="0.4mm" border-style="solid">
-                        <fo:table-column column-width="proportional-column-width(33)"/>
-                        <fo:table-column column-width="proportional-column-width(34)"/>
-                        <fo:table-column column-width="proportional-column-width(33)"/>
+                    <fo:table table-layout="fixed">
+                        <fo:table-column column-width="proportional-column-width(30)"/>
+                        <fo:table-column column-width="proportional-column-width(70)"/>
                         <fo:table-body>
                             <fo:table-row>
-                                <fo:table-cell text-align="left" display-align="center" padding-left="2mm">
-                                    <fo:block>
-                                        Customer Id: <xsl:value-of select="customerId"/>
-                                    </fo:block>
-                                    <fo:block>
-                                        Order Id: <xsl:value-of select="orderId"/>
-                                    </fo:block>
-                                </fo:table-cell>
-                                <fo:table-cell text-align="center" display-align="center" border-top="3pt" padding="2mm">
-                                    <fo:block text-align="center" font-size="150%">
+                                <fo:table-cell><fo:block font-size="12pt" font-weight="bold">INVOICE REPORT</fo:block></fo:table-cell>
+                                <fo:table-cell >
+                                    <fo:block font-size="150%">
                                         <fo:basic-link external-destination="https://www.dmart.in/category/dmart-grocery-aesc-grocerycore2">DMART | Navi Mumbai</fo:basic-link>
-                                    </fo:block>
-                                    <fo:block space-before="3mm"/>
-                                </fo:table-cell>
-                                <fo:table-cell text-align="right" display-align="center" padding-right="2mm">
-                                    <fo:block>
-                                        Date: <xsl:value-of select="invoiceDate"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -50,12 +35,35 @@
                 </fo:static-content>
 
                 <!-- Flow for main content -->
-                <fo:flow flow-name="xsl-region-body" border-collapse="collapse" reference-orientation="0">
+                <fo:flow id="end-of-document" flow-name="xsl-region-body" border-collapse="collapse" reference-orientation="0">
                     <!-- Customer Information Table -->
                     <fo:table table-layout="fixed" width="100%" font-size="10pt" border-color="black" border-width="0.35mm" border-style="solid" text-align="left" display-align="center" space-after="5mm">
-                        <fo:table-column column-width="proportional-column-width(30)"/>
-                        <fo:table-column column-width="proportional-column-width(70)"/>
+                        <fo:table-column column-width="proportional-column-width(20)"/>
+                        <fo:table-column column-width="proportional-column-width(20)"/>
+                        <fo:table-column column-width="proportional-column-width(20)"/>
+                        <fo:table-column column-width="proportional-column-width(20)"/>
+                        <fo:table-column column-width="proportional-column-width(20)"/>
                         <fo:table-body font-size="95%">
+                            <fo:table-row>
+                                <fo:table-cell>
+                                    <fo:block text-align="left">Invoice Date: </fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block text-align="left">
+                                        <xsl:value-of select="invoiceDate"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row >
+                                <fo:table-cell>
+                                    <fo:block text-align="left">Customer Id: </fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block text-align="left">
+                                        <xsl:value-of select="customerId"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
                             <fo:table-row >
                                 <fo:table-cell>
                                     <fo:block text-align="left">Customer Name: </fo:block>
@@ -186,6 +194,7 @@
                     </fo:table>
                 </fo:flow>
             </fo:page-sequence>
+
         </fo:root>
     </xsl:template>
 </xsl:stylesheet>

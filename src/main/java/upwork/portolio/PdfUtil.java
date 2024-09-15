@@ -37,7 +37,7 @@ public class PdfUtil {
     mapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
     mapper.enable(INDENT_OUTPUT);
     var value = mapper.writeValueAsString(Customer.DEFAULT_CUSTOMER);
-    log.info(value);
+    //    log.info(value);
     convertToPdf(value);
   }
 
