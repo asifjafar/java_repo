@@ -18,13 +18,15 @@
                     <fo:block display-align="after" text-align="right" space-before="6mm">
                         Page <fo:page-number/> of <fo:page-number-citation ref-id="end-of-document"/>
                     </fo:block>
-                    <fo:table table-layout="fixed">
+                    <fo:table table-layout="fixed" space-before="5mm">
                         <fo:table-column column-width="proportional-column-width(30)"/>
                         <fo:table-column column-width="proportional-column-width(70)"/>
                         <fo:table-body>
                             <fo:table-row>
-                                <fo:table-cell><fo:block font-size="12pt" font-weight="bold">INVOICE REPORT</fo:block></fo:table-cell>
-                                <fo:table-cell >
+                                <fo:table-cell>
+                                    <fo:block font-size="12pt" font-weight="bold">INVOICE REPORT</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
                                     <fo:block font-size="150%">
                                         <fo:basic-link external-destination="https://www.dmart.in/category/dmart-grocery-aesc-grocerycore2">DMART | Navi Mumbai</fo:basic-link>
                                     </fo:block>
