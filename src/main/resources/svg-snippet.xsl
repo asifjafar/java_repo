@@ -1,20 +1,23 @@
 <!-- Footer with SVG -->
 <fo:block id="end-of-document">
     <fo:instream-foreign-object>
-        <svg width="200mm" height="150mm" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <path d="M153 334
-C153 334 151 334 151 334
-C151 339 153 344 156 344
-C164 344 171 339 171 334
-C171 322 164 314 156 314
-C142 314 131 322 131 334
-C131 350 142 364 156 364
-C175 364 191 350 191 334
-C191 311 175 294 156 294
-C131 294 111 311 111 334
-C111 361 131 384 156 384
-C186 384 211 361 211 334
-C211 300 186 274 156 274" style="fill:yellow;stroke:red;stroke-width:2"/>
+        <svg width="400" height="100" xmlns="http://www.w3.org/2000/svg">
+            <style>
+                .google-logo { font-family: 'Arial', sans-serif; font-weight: bold; font-size: 80px; }
+                .g { fill: #4285F4; }
+                .o1 { fill: #EA4335; }
+                .o2 { fill: #FABB05; }
+                .g2 { fill: #34A853; }
+                .l { fill: #FF0B3E; }
+                .e { fill: #FF5722; }
+            </style>
+            <text x="10" y="80" class="google-logo g">G</text>
+            <text x="70" y="80" class="google-logo o1">o</text>
+            <text x="130" y="80" class="google-logo o2">o</text>
+            <text x="190" y="80" class="google-logo g2">g</text>
+            <text x="250" y="80" class="google-logo l">l</text>
+            <text x="290" y="80" class="google-logo e">e</text>
         </svg>
+
     </fo:instream-foreign-object>
 </fo:block>

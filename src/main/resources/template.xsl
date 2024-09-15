@@ -15,29 +15,49 @@
             <fo:page-sequence master-reference="A4-portrait">
                 <!-- Static content for header -->
                 <fo:static-content flow-name="xsl-region-before">
-                    <fo:block display-align="after" text-align="right" space-before="6mm">
-                        Page <fo:page-number/> of <fo:page-number-citation ref-id="end-of-document"/>
-                    </fo:block>
-                    <fo:table table-layout="fixed" space-before="5mm">
-                        <fo:table-column column-width="proportional-column-width(30)"/>
-                        <fo:table-column column-width="proportional-column-width(70)"/>
+                    <fo:table>
                         <fo:table-body>
                             <fo:table-row>
-                                <fo:table-cell>
-                                    <fo:block font-size="12pt" font-weight="bold">INVOICE REPORT</fo:block>
+                                <fo:table-cell text-align="left">
+                                    <fo:block font-size="8pt">
+                                        INVOICE REPORT
+                                    </fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell>
-                                    <fo:block font-size="150%">
-                                        <fo:basic-link external-destination="https://www.dmart.in/category/dmart-grocery-aesc-grocerycore2">DMART | Navi Mumbai</fo:basic-link>
+                                <fo:table-cell text-align="right">
+                                    <fo:block font-size="8pt">
+                                        Page <fo:page-number/> of <fo:page-number-citation ref-id="end-of-document"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-body>
                     </fo:table>
+                    <fo:table table-layout="fixed">
+                        <fo:table-body>
+                            <fo:table-row>
+                                <fo:table-cell text-align="left">
+                                    <fo:block >
+                                        <!-- Adjusting the SVG size and viewBox for better alignment -->
+                                        <fo:instream-foreign-object width="100mm" height="15mm">
+                                            <svg viewBox="16 60 200 80" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                                <style>
+                                                    .dmart-logo { font-family: 'Arial', sans-serif; font-weight: bold; font-size: 60px; }
+                                                    .dm { fill: #008CBA; } /* Blue for D- */
+                                                    .art { fill: #333333; } /* Dark gray for Mart */
+                                                </style>
+                                                <text x="10" y="70" class="dmart-logo dm">D-</text>
+                                                <text x="80" y="70" class="dmart-logo art">Mart</text>
+                                            </svg>
+                                        </fo:instream-foreign-object>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table>
+
                 </fo:static-content>
 
                 <!-- Flow for main content -->
-                <fo:flow id="end-of-document" flow-name="xsl-region-body" border-collapse="collapse" reference-orientation="0">
+                <fo:flow flow-name="xsl-region-body" border-collapse="collapse" reference-orientation="0">
                     <!-- Customer Information Table -->
                     <fo:table table-layout="fixed" width="100%" font-size="10pt" border-color="black" border-width="0.35mm" border-style="solid" text-align="left" display-align="center" space-after="5mm">
                         <fo:table-column column-width="proportional-column-width(20)"/>
@@ -56,7 +76,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
-                            <fo:table-row >
+                            <fo:table-row>
                                 <fo:table-cell>
                                     <fo:block text-align="left">Customer Id: </fo:block>
                                 </fo:table-cell>
@@ -66,7 +86,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
-                            <fo:table-row >
+                            <fo:table-row>
                                 <fo:table-cell>
                                     <fo:block text-align="left">Customer Name: </fo:block>
                                 </fo:table-cell>
@@ -76,7 +96,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
-                            <fo:table-row >
+                            <fo:table-row>
                                 <fo:table-cell>
                                     <fo:block text-align="left">Phone Number:</fo:block>
                                 </fo:table-cell>
@@ -86,7 +106,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
-                            <fo:table-row >
+                            <fo:table-row>
                                 <fo:table-cell>
                                     <fo:block text-align="left">Address:</fo:block>
                                 </fo:table-cell>
@@ -98,7 +118,6 @@
                             </fo:table-row>
                         </fo:table-body>
                     </fo:table>
-
 
                     <!-- Items Table -->
                     <fo:table table-layout="fixed" width="100%" font-size="10pt" border-color="black" border-width="0.35mm" border-style="solid" text-align="center" display-align="center" space-after="5mm">
@@ -194,9 +213,11 @@
                             </fo:table-row>
                         </fo:table-body>
                     </fo:table>
+
+                    <fo:block id="end-of-document" text-align="center" padding="0">
+                    </fo:block>
                 </fo:flow>
             </fo:page-sequence>
-
         </fo:root>
     </xsl:template>
 </xsl:stylesheet>
