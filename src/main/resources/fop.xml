@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<fop version="2.9">
+
+    <!-- Base URL for resolving relative URLs -->
+    <base>.</base>
+    <renderers>
+        <renderer mime="application/pdf">
+            <filterList>
+                <!-- provides compression using zlib flate (default is on) -->
+                <value>flate</value>
+
+            </filterList>
+            <fonts>
+                <font embed-url="file:/Users/asif/Desktop/java_repo/src/main/resources/NotoSans.ttf"
+                      embed-url-base="file:" embed="true">
+                    <font-triplet name="NotoSans" style="normal" weight="normal"/>
+                </font>
+            </fonts>
+        </renderer>
+    </renderers>
+</fop>

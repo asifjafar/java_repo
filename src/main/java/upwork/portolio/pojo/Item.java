@@ -15,7 +15,21 @@ public class Item {
   private double price;
   private String itemName;
   private String description;
+  private String quantity;
 
-  public static final Item DEFAULT_ITEM =
-      Item.builder().itemName("Camera").description("DSLR Camera").price(1023.44).build();
+  public static final Item DEFAULT_ITEM_1 =
+      Item.builder()
+          .itemName("Rice")
+          .description("Basmati Rice")
+          .price(1023.44)
+          .quantity("10 Kg")
+          .build();
+
+  public static final Item DEFAULT_ITEM_2 =
+      Item.builder()
+          .itemName("LED Bulb")
+          .description("30W Led Bulb")
+          .price(768.99)
+          .quantity("2 pc")
+          .build();
 }

@@ -1,17 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Customer>
     <customerId>5349</customerId>
-    <customerName>Rahul Kumar Jain</customerName>
+    <customerName>Saymah D.</customerName>
     <phoneNumber>9876543210</phoneNumber>
-    <customerAddress>EJ123, Block 91A, Bangalore-678807</customerAddress>
+    <customerAddress>EJ123, Block 91A, Mumbai-678807</customerAddress>
     <orderId>A1234DF34</orderId>
-    <invoiceDate>Sun Sep 15 01:48:09 IST 2024</invoiceDate>
-    <currency>Rupees</currency>
+    <invoiceDate>Sun Sep 15 17:59:45 IST 2024</invoiceDate>
+    <currency>₹</currency>
+<!--    <currency>Rs. </currency>-->
     <items>
         <item>
             <price>1023.44</price>
-            <itemName>Camera</itemName>
-            <description>DSLR Camera</description>
+            <itemName>Rice</itemName>
+            <description>Basmati Rice</description>
+            <quantity>10 Kg</quantity>
+        </item>
+        <item>
+            <price>768.99</price>
+            <itemName>LED Bulb</itemName>
+            <description>30W Led Bulb</description>
+            <quantity>2 pc</quantity>
         </item>
     </items>
 </Customer>

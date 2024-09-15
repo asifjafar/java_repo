@@ -29,14 +29,11 @@
                                 </fo:table-cell>
                                 <fo:table-cell text-align="center" display-align="center">
                                     <fo:block font-size="150%">
-                                        <fo:basic-link external-destination="http://www.example.com">XXX COMPANY</fo:basic-link>
+                                        <fo:basic-link external-destination="http://www.example.com">DMART | Navi Mumbai</fo:basic-link>
                                     </fo:block>
                                     <fo:block space-before="3mm"/>
                                 </fo:table-cell>
                                 <fo:table-cell text-align="right" display-align="center" padding-right="2mm">
-                                    <fo:block>
-                                        <xsl:value-of select="currency"/>
-                                    </fo:block>
                                     <fo:block display-align="before" space-before="6mm">
                                         Page <fo:page-number/> of <fo:page-number-citation ref-id="end-of-document"/>
                                     </fo:block>
@@ -122,12 +119,12 @@
                                         </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
-                                        <fo:block>
-                                            <xsl:value-of select="price"/>
+                                        <fo:block font-family="NotoSans" font-size="12pt">
+                                            ₹<xsl:value-of select="price"/>
                                         </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
-                                        <fo:block>1</fo:block> <!-- Assuming quantity is always 1 -->
+                                        <fo:block><xsl:value-of select="quantity"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>

@@ -31,12 +31,12 @@ public class Customer {
   public static Customer DEFAULT_CUSTOMER =
       Customer.builder()
           .customerId(012345)
-          .customerName("Rahul Kumar Jain")
+          .customerName("Saymah D.")
           .phoneNumber(9876543210L)
-          .items(List.of(Item.DEFAULT_ITEM))
-          .customerAddress("EJ123, Block 91A, Bangalore-678807")
+          .items(List.of(Item.DEFAULT_ITEM_1, Item.DEFAULT_ITEM_2))
+          .customerAddress("EJ123, Block 91A, Mumbai-678807")
           .orderId("A1234DF34")
           .invoiceDate(new Date(System.currentTimeMillis()).toString())
-          .currency("Rupees")
+          .currency("₹")
           .build();
 }

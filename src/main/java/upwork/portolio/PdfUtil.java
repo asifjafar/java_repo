@@ -7,6 +7,7 @@ import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URI;
 import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
@@ -14,11 +15,11 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.fop.apps.FOPException;
-import org.apache.fop.apps.FOUserAgent;
-import org.apache.fop.apps.Fop;
-import org.apache.fop.apps.FopFactory;
+import org.apache.fop.apps.*;
+import org.apache.fop.configuration.ConfigurationException;
+import org.apache.fop.configuration.DefaultConfigurationBuilder;
 import org.apache.xmlgraphics.util.MimeConstants;
+import org.xml.sax.SAXException;
 import upwork.portolio.pojo.Customer;
 
 @Slf4j
@@ -31,7 +32,7 @@ public class PdfUtil {
     OUTPUT_DIR = "src//main//resources//output//";
   }
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) throws IOException, SAXException, ConfigurationException {
     XmlMapper mapper = new XmlMapper();
 
     mapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
@@ -41,14 +42,20 @@ public class PdfUtil {
     convertToPdf();
   }
 
-  private static void convertToPdf() throws IOException {
+  private static void convertToPdf() throws IOException, SAXException, ConfigurationException {
     // the XSL FO file
     File xsltFile = new File("src/main/resources/template.xsl");
     // the XML file which provides the input
     StreamSource xmlSource = new StreamSource(new File("src/main/resources/data.xml"));
     // create an instance of fop factory
-    FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
+
+    URI configURI = new File("src/main/resources/fop.xml").toURI();
+    FopFactoryBuilder builder = new FopFactoryBuilder(configURI);
+    builder.setConfiguration(
+        new DefaultConfigurationBuilder().build(configURI.toURL().openStream()));
+    FopFactory fopFactory = builder.build();
     // a user agent is needed for transformation
+
     FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
     // Setup output
     OutputStream out;
@@ -56,6 +63,7 @@ public class PdfUtil {
 
     try {
       // Construct fop with desired output format
+
       Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
 
       // Setup XSLT
