@@ -8,7 +8,6 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.stream.Stream;
 import lombok.*;
 
 @Builder
@@ -40,8 +39,7 @@ public class Customer {
           .customerAddress("EJ123, Block 91A, Mumbai-678807")
           .orderId("A12341111")
           .invoiceDate(Customer.getDate())
-          .total(
-              Item.ALL_ITEMS.stream().mapToDouble(Item::getPrice).sum())
+          .total(Item.ALL_ITEMS.stream().mapToDouble(Item::getPrice).sum())
           .currency("₹")
           .build();
 
