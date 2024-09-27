@@ -17,24 +17,31 @@
                 <fo:static-content flow-name="xsl-region-before" font-family="NotoSans">
                     <fo:table>
                         <fo:table-body>
-<!--                            <fo:table-row >-->
-<!--                                <fo:table-cell text-align="left">-->
-<!--                                    <fo:block >-->
-<!--                                        &lt;!&ndash; Adjusting the SVG size and viewBox for better alignment &ndash;&gt;-->
-<!--                                        <fo:instream-foreign-object height="5mm">-->
-<!--                                            <svg viewBox="0 0 150 50" width="150" height="50" xmlns="http://www.w3.org/2000/svg">-->
-<!--                                                <style>-->
-<!--                                                    .dmart-logo { font-family: &apos;Arial&apos;, sans-serif; font-weight: bold; font-size: 25px; }-->
-<!--                                                    .dm { fill: #008CBA; } /* Blue for D- */-->
-<!--                                                    .art { fill: #333333; } /* Dark gray for Mart */-->
-<!--                                                </style>-->
-<!--                                                <text x="0" y="30" class="dmart-logo dm">D-</text>-->
-<!--                                                <text x="26" y="30" class="dmart-logo art">Mart</text>-->
-<!--                                            </svg>-->
-<!--                                        </fo:instream-foreign-object>-->
-<!--                                    </fo:block>-->
-<!--                                </fo:table-cell>-->
-<!--                            </fo:table-row>-->
+                            <fo:table-row>
+                                <fo:table-cell text-align="right">
+                                    <fo:block font-size="8pt">
+                                        Page <fo:page-number/> of <fo:page-number-citation ref-id="end-of-document"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row >
+                                <fo:table-cell text-align="center">
+                                    <fo:block >
+                                        <!-- Adjusting the SVG size and viewBox for better alignment -->
+                                        <fo:instream-foreign-object height="5mm">
+                                            <svg viewBox="0 0 150 50" width="150" height="30" xmlns="http://www.w3.org/2000/svg">
+                                                <style>
+                                                    .dmart-logo { font-family: &apos;Arial&apos;, sans-serif; font-weight: bold; font-size: 40px; }
+                                                    .dm { fill: #008CBA; } /* Blue for D- */
+                                                    .art { fill: #333333; } /* Dark gray for Mart */
+                                                </style>
+                                                <text x="0" y="30" class="dmart-logo dm">D-</text>
+                                                <text x="50" y="30" class="dmart-logo art">Mart</text>
+                                            </svg>
+                                        </fo:instream-foreign-object>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
                             <fo:table-row>
                                 <fo:table-cell text-align="left">
                                     <fo:block font-size="8pt">
@@ -51,7 +58,7 @@
                             </fo:table-row>
                         </fo:table-body>
                     </fo:table>
-                    <fo:table>
+                    <fo:table space-before="-3mm">
                         <fo:table-body>
                             <fo:table-row>
                                 <fo:table-cell text-align="center">
