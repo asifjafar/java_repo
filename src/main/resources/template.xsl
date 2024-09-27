@@ -15,18 +15,30 @@
             <fo:page-sequence master-reference="A4-portrait">
                 <!-- Static content for header -->
                 <fo:static-content flow-name="xsl-region-before" font-family="NotoSans">
-                    <fo:table>
+                    <fo:table table-layout="fixed">
                         <fo:table-body>
                             <fo:table-row>
+                                <fo:table-cell text-align="left">
+                                    <fo:block font-size="8pt">
+                                        Invoice No.: A123456
+                                    </fo:block>
+                                </fo:table-cell>
                                 <fo:table-cell text-align="right">
                                     <fo:block font-size="8pt">
                                         Page <fo:page-number/> of <fo:page-number-citation ref-id="end-of-document"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
-                            <fo:table-row >
-                                <fo:table-cell text-align="center">
-                                    <fo:block >
+                            <fo:table-row>
+                                <fo:table-cell text-align="left">
+                                    <fo:block font-size="8pt">
+                                        Date: <xsl:value-of select="invoiceDate"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell>
+                                    <fo:block margin-left="-11mm" margin-top="3mm">
                                         <!-- Adjusting the SVG size and viewBox for better alignment -->
                                         <fo:instream-foreign-object height="5mm">
                                             <svg viewBox="0 0 150 50" width="150" height="30" xmlns="http://www.w3.org/2000/svg">
@@ -41,35 +53,14 @@
                                         </fo:instream-foreign-object>
                                     </fo:block>
                                 </fo:table-cell>
-                            </fo:table-row>
-                            <fo:table-row>
-                                <fo:table-cell text-align="left">
-                                    <fo:block font-size="8pt">
-                                        Invoice No.: A123456
-                                    </fo:block>
-                                </fo:table-cell>
-                            </fo:table-row>
-                            <fo:table-row>
-                                <fo:table-cell text-align="left">
-                                    <fo:block font-size="8pt">
-                                        Date: <xsl:value-of select="invoiceDate"/>
-                                    </fo:block>
-                                </fo:table-cell>
-                            </fo:table-row>
-                        </fo:table-body>
-                    </fo:table>
-                    <fo:table space-before="-3mm">
-                        <fo:table-body>
-                            <fo:table-row>
-                                <fo:table-cell text-align="center">
-                                    <fo:block>
+                                <fo:table-cell text-align="right">
+                                    <fo:block margin-top="6mm" font-size="17px">
                                         INVOICE REPORT
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-body>
                     </fo:table>
-
                 </fo:static-content>
 
                 <!-- Flow for main content -->
@@ -134,7 +125,7 @@
                             </fo:table-row>
                         </fo:table-body>
                     </fo:table>
-                    <fo:table table-layout="fixed" width="100%" font-size="10pt" border-color="black" border-width="0.35mm" border-style="solid" text-align="center" display-align="center" space-after="5mm">
+                    <fo:table table-layout="fixed" width="100%" font-size="10pt" border="1px solid black" text-align="center" display-align="center" space-after="5mm">
                         <fo:table-column column-width="proportional-column-width(10)"/> <!--serial no-->
                         <fo:table-column column-width="proportional-column-width(42)"/> <!--description-->
                         <fo:table-column column-width="proportional-column-width(8)"/> <!--quantity-->
@@ -183,26 +174,9 @@
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
-                            <!-- Horizontal Line Row -->
-                            <fo:table-row>
-                                <fo:table-cell border-top="1pt solid black" border-bottom="none">
-                                    <fo:block/>
-                                </fo:table-cell>
-                                <fo:table-cell border-top="1pt solid black" border-bottom="none">
-                                    <fo:block/>
-                                </fo:table-cell>
-                                <fo:table-cell border-top="1pt solid black" border-bottom="none">
-                                    <fo:block/>
-                                </fo:table-cell>
-                                <fo:table-cell border-top="1pt solid black" border-bottom="none">
-                                    <fo:block/>
-                                </fo:table-cell>
-                                <fo:table-cell border-top="1pt solid black" border-bottom="none">
-                                    <fo:block/>
-                                </fo:table-cell>
-                            </fo:table-row>
+
                             <!-- Total Row -->
-                            <fo:table-row>
+                            <fo:table-row border-top="1pt solid black">
                                 <fo:table-cell>
                                     <fo:block> </fo:block>
                                 </fo:table-cell>
