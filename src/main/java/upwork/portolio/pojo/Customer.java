@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.stream.Stream;
 import lombok.*;
 
-@Getter
-@Setter
 @Builder
 @Data
 @AllArgsConstructor
@@ -36,14 +34,14 @@ public class Customer {
   public static Customer DEFAULT_CUSTOMER =
       Customer.builder()
           .customerId(012345)
-          .customerName("Saymah D.")
+          .customerName("John D.")
           .phoneNumber(9876543210L)
-          .items(List.of(Item.DEFAULT_ITEM_1, Item.DEFAULT_ITEM_2))
+          .items(Item.ALL_ITEMS)
           .customerAddress("EJ123, Block 91A, Mumbai-678807")
           .orderId("A12341111")
           .invoiceDate(Customer.getDate())
           .total(
-              Stream.of(Item.DEFAULT_ITEM_1, Item.DEFAULT_ITEM_2).mapToDouble(Item::getPrice).sum())
+              Item.ALL_ITEMS.stream().mapToDouble(Item::getPrice).sum())
           .currency("₹")
           .build();
 
